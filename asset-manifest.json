@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/marvwlTest/static/css/main.e4e6ec41.chunk.css",
+    "main.js": "/marvwlTest/static/js/main.ebb94e5a.chunk.js",
+    "main.js.map": "/marvwlTest/static/js/main.ebb94e5a.chunk.js.map",
+    "runtime-main.js": "/marvwlTest/static/js/runtime-main.d78afbab.js",
+    "runtime-main.js.map": "/marvwlTest/static/js/runtime-main.d78afbab.js.map",
+    "static/js/2.5e8bb286.chunk.js": "/marvwlTest/static/js/2.5e8bb286.chunk.js",
+    "static/js/2.5e8bb286.chunk.js.map": "/marvwlTest/static/js/2.5e8bb286.chunk.js.map",
+    "index.html": "/marvwlTest/index.html",
+    "static/css/main.e4e6ec41.chunk.css.map": "/marvwlTest/static/css/main.e4e6ec41.chunk.css.map",
+    "static/js/2.5e8bb286.chunk.js.LICENSE.txt": "/marvwlTest/static/js/2.5e8bb286.chunk.js.LICENSE.txt",
+    "static/media/error.42292aa1.gif": "/marvwlTest/static/media/error.42292aa1.gif",
+    "static/media/mjolnir.61f31e18.png": "/marvwlTest/static/media/mjolnir.61f31e18.png",
+    "static/media/vision.067d4ae1.png": "/marvwlTest/static/media/vision.067d4ae1.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.d78afbab.js",
+    "static/js/2.5e8bb286.chunk.js",
+    "static/css/main.e4e6ec41.chunk.css",
+    "static/js/main.ebb94e5a.chunk.js"
+  ]
+}
