@@ -1,6 +1,5 @@
 class MarvelService {
     _apiBase = 'https://gateway.marvel.com:443/v1/public/';
-    // ЗДЕСЬ БУДЕТ ВАШ КЛЮЧ, ЭТОТ КЛЮЧ МОЖЕТ НЕ РАБОТАТЬ
     _apiKey = 'apikey=d16d66c8f4ff301e7dc83bfb3155d0d7';
     _baseOffset = 210;
 
