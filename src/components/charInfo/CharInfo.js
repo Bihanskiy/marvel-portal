@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-import MarvelService from '../../services/MarvelService';
+import useMarvelService from '../../services/MarvelService';
 import Spinner from '../spinner/Spinner';
 import ErrorMessage from '../errorMessage/ErrorMessage';
 import Skeleton from '../skeleton/Skeleton';
@@ -11,13 +12,11 @@ import './charInfo.scss';
 const CharInfo = (props) => {
 
     const [char, setChar] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
 
-    const marvelService = new MarvelService();
+    const { loading, error, getCharacter, clearError } = useMarvelService();
 
     useEffect(() => {
-        updateChar();
+        updateChar()
     }, [props.charId])
 
     const updateChar = () => {
@@ -26,41 +25,28 @@ const CharInfo = (props) => {
             return;
         }
 
-        onCharLoading();
-
-        marvelService
-            .getCharacter(charId)
+        clearError();
+        getCharacter(charId)
             .then(onCharLoaded)
-            .catch(onError);
     }
 
-    const onCharLoaded = (newChar) => {
-        setChar(char => newChar);
-        setLoading(loading => false);
+    const onCharLoaded = (char) => {
+        setChar(char);
     }
 
-    const onCharLoading = () => {
-        setLoading(loading => true);
-    }
+    const skeleton = char || loading || error ? null : <Skeleton />;
+    const errorMessage = error ? <ErrorMessage /> : null;
+    const spinner = loading ? <Spinner /> : null;
+    const content = !(loading || error || !char) ? <View char={char} /> : null;
 
-    const onError = () => {
-        setLoading(loading => false);
-        setError(error => true);
-    }
-
-        const skeleton = char || loading || error ? null : <Skeleton />;
-        const errorMessage = error ? <ErrorMessage /> : null;
-        const spinner = loading ? <Spinner /> : null;
-        const content = !(loading || error || !char) ? <View char={char} /> : null;
-
-        return (
-            <div className="char__info">
-                {skeleton}
-                {errorMessage}
-                {spinner}
-                {content}
-            </div>
-        )
+    return (
+        <div className="char__info">
+            {skeleton}
+            {errorMessage}
+            {spinner}
+            {content}
+        </div>
+    )
 }
 
 const View = ({ char }) => {
@@ -70,6 +56,11 @@ const View = ({ char }) => {
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
         imgStyle = { 'objectFit': 'contain' };
     }
+
+    const newComics = comics.map(item => {
+        const urlId = item.resourceURI.split("/").pop();
+        return { urlId, name: item.name }
+    })
 
     return (
         <>
@@ -92,14 +83,14 @@ const View = ({ char }) => {
             </div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
-                {comics.length > 0 ? null : 'There is no comics with this character'}
+                {newComics.length > 0 ? null : 'There is no comics with this character'}
                 {
-                    comics.map((item, i) => {
+                    newComics.map((item, i) => {
                         // eslint-disable-next-line
                         if (i > 9) return;
                         return (
                             <li key={i} className="char__comics-item">
-                                {item.name}
+                                <Link to={`/comics/${item.urlId}`}>{item.name}</Link>
                             </li>
                         )
                     })
