@@ -7,6 +7,15 @@
         grid-template-columns: 650px 425px;
         column-gap: 25px;
         align-items: start;
+        grid-template-areas:
+        'A B'
+        'A C';
+    }
+    &__list {
+        grid-area: A;
+    }
+    &__search {
+        grid-area: C;
     }
     &__grid {
         display: grid;
