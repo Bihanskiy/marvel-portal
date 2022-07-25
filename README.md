@@ -2,6 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Technologies:HTML, CSS, SCSS, React, React Router, Marvel Comics API
+
 ## Available Scripts
 
 In the project directory, you can run:
