@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .app {
     &__banner {
@@ -8,13 +8,29 @@
         padding: 0 25px 0 45px;
         display: grid;
         grid-template-columns: 152px auto 133px;
+        @media (max-width: $mobile) {
+            grid-template-columns: 152px auto;
+            gap: 20px;
+        }
+        @media (max-width: $mobileSmall) {
+            padding: 0;
+        }
         &-text {
+            align-self: center;
             font-weight: bold;
             font-size: 24px;
+            justify-self: center;
             line-height: 32px;
-            color: #FFFFFF;
-            padding-left: 83px;
-            padding-top: 18px;
+            color: #ffffff;
+            @media (min-width: $mobile) {
+                padding-left: 83px;
+                padding-top: 18px;
+            }
+        }
+        &-img-avangers {
+            @media (max-width: $mobile) {
+                display: none;
+            }
         }
     }
 }

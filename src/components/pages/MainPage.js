@@ -22,16 +22,18 @@ const MainPage = () => {
                 <RandomChar />
             </ErrorBoundary>
             <div className="char__content">
-                <ErrorBoundary>
-                    <CharList onCharSelected={onCharSelected} />
-                </ErrorBoundary>
-                <div>
+                <div className="char__content-container container">
                     <ErrorBoundary>
-                        <CharInfo charId={selectedChar} />
+                        <CharList onCharSelected={onCharSelected} />
                     </ErrorBoundary>
-                    <ErrorBoundary>
-                        <SearchCheracter />
-                    </ErrorBoundary>
+                    <div className="char__wrapper">
+                        <ErrorBoundary>
+                            <CharInfo charId={selectedChar} />
+                        </ErrorBoundary>
+                        <ErrorBoundary>
+                            <SearchCheracter />
+                        </ErrorBoundary>
+                    </div>
                 </div>
             </div>
             <img className="bg-decoration" src={decoration} alt="vision" />

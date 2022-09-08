@@ -1,9 +1,17 @@
-@import '../../style/variables.scss';
+@import "../../style/variables.scss";
 
 .app {
-    &__header {
+    &__header-container {
+        align-items: center;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-between;
+        @media (max-width: 605px) {
+            align-items: center;
+            flex-direction: column;
+            justify-content: start;
+            gap: 15px;
+        }
     }
     &__title {
         font-weight: bold;

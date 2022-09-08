@@ -10,7 +10,7 @@ const AppBanner = () => {
                 New comics every week!<br/>
                 Stay tuned!
             </div>
-            <img src={avengersLogo} alt="Avengers logo"/>
+            <img src={avengersLogo} alt="Avengers logo" className='app__banner-img-avangers'/>
         </div>
     )
 }
